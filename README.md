@@ -1,152 +1,50 @@
-# Python Production Backend Template
+# Python Backend Deployment Scaffold
 
-Production-ready Python backend template with structured logging, environment configuration, and REST API foundations.
+A small application-side companion to my Cloud & DevOps portfolio. Its purpose is to provide a simple workload that can be containerised, tested, deployed, logged, and operated in the AWS and Azure labs.
 
-## Overview
+## Current scope
 
-This repository is a production-style Python backend template built to demonstrate clean structure, maintainability, and backend development best practices.
+This repository is intentionally a **scaffold**, not a finished production API. It currently contains a minimal Python smoke test and legacy imported material. I do not present it as a feature-complete backend until the implementation and its CI evidence exist.
 
-The goal of this project is to show that I understand not only cloud infrastructure, but also the type of backend application that can run inside cloud environments.
+That boundary is deliberate: accurate documentation is more useful to a recruiter than a broad “production-ready” claim without corresponding code.
 
-This project supports my cloud engineering portfolio by connecting backend development with deployment, automation, logging, and cloud-ready application structure.
+## Target shape
 
-## What this project demonstrates
-
-- clean Python project structure
-- structured logging
-- environment-based configuration
-- REST API foundations
-- dependency management
-- maintainable backend setup
-- production-style thinking
-- cloud deployment readiness
-
-## Tech stack
-
-- Python
-- REST API foundations
-- structured logging
-- environment variables
-- dependency management
-- backend application structure
-- cloud-ready application design
-
-## Why this project matters
-
-Cloud engineers often work close to application teams.
-
-Understanding backend structure helps with:
-
-- containerization
-- CI/CD pipelines
-- cloud deployment
-- logging and monitoring
-- environment configuration
-- debugging application behavior
-- understanding how applications run in cloud infrastructure
-
-This project shows that I can think about both sides:
+The next implementation phase will establish one clear application root:
 
 ```text
-application code
-→ configuration
-→ logging
-→ containerization
-→ deployment
-→ cloud infrastructure
+app/                 # API and configuration
+tests/               # automated tests
+Dockerfile           # reproducible container build
+.github/workflows/   # lint, test, build and image checks
+docs/                # runbook, architecture and deployment notes
+.env.example         # non-secret configuration contract
 ```
 
-## Key learning areas
+## What the completed companion should demonstrate
 
-### Python backend structure
+- health and readiness endpoints for deployment checks
+- structured logs that can be correlated in CloudWatch or Azure Monitor
+- environment-driven configuration with no secrets committed to Git
+- a small, tested REST API
+- a reproducible Docker image
+- GitHub Actions checks before deployment
+- deployment notes that connect the application to ECS/Fargate or Azure Container Apps
 
-This project helped me practice how to organize Python application code in a cleaner and more maintainable way.
+## Engineering standard
 
-Focus areas:
+The repository will be featured in the portfolio only after it includes:
 
-- project structure
-- readable code
-- separation of responsibilities
-- backend foundations
+1. Source code and dependency definitions.
+2. Automated tests running in CI.
+3. A Docker build that can be reproduced locally.
+4. A deployment example with non-secret configuration.
+5. Operational notes covering logs, health checks, rollback, and cleanup.
 
-### Environment configuration
+## Repository hygiene
 
-Production-style applications should not hardcode important configuration values.
+The nested `cloud-consultant-2026/` material is retained as legacy imported content. New work should use the root-level structure above so that the current application boundary is unambiguous.
 
-Focus areas:
+## Related portfolio
 
-- environment variables
-- configuration management
-- safer deployment practices
-- cloud-ready application setup
-
-### Structured logging
-
-Logging is important for debugging, monitoring, and operating applications in cloud environments.
-
-Focus areas:
-
-- readable logs
-- useful application output
-- operational visibility
-- debugging support
-
-### REST API foundations
-
-This project includes backend API thinking that can later be connected to cloud deployment platforms.
-
-Focus areas:
-
-- API structure
-- request / response thinking
-- backend service foundations
-- deployment-ready application logic
-
-## How this connects to cloud engineering
-
-This project can be used as a foundation for future cloud projects such as:
-
-- Docker containerization
-- AWS deployment
-- Azure deployment
-- GitHub Actions CI/CD
-- cloud logging and monitoring
-- infrastructure + application deployment practice
-
-It supports my cloud portfolio by showing that I understand what happens above the infrastructure layer.
-
-## Security and best practices
-
-Important principles:
-
-- do not commit secrets
-- use environment variables for configuration
-- keep dependencies documented
-- write readable and maintainable code
-- prepare the application for deployment and automation
-
-## What I learned
-
-Through this project, I practiced:
-
-- how to structure a Python backend project
-- how logging supports production-style applications
-- how environment configuration works
-- how backend applications connect to cloud deployment workflows
-- how to think more like both a developer and a cloud engineer
-
-## Future improvements
-
-Possible next improvements:
-
-- add Docker support
-- add automated tests
-- add GitHub Actions workflow
-- add API documentation
-- add deployment example to AWS
-- add deployment example to Azure
-- add monitoring/logging example
-
-## Status
-
-Supporting Python/backend project for my cloud engineering portfolio.
+For the implemented cloud architecture case studies and interview-ready explanations, see [cloud-engineering-portfolio](https://github.com/titoiunit/cloud-engineering-portfolio).
